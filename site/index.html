@@ -9,62 +9,65 @@
 </head>
 <body>
   <header class="masthead"><div class="shell masthead-inner">
-    <a class="brand" href="./"><span class="mark" aria-hidden="true">合</span>兩人的理財簿</a>
-    <div id="user-bar" hidden><span id="identity"></span><button id="logout" class="quiet">登出</button></div>
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">合</span><span data-i18n="title">兩人的理財簿</span></a>
+    <div class="masthead-tools">
+      <select id="lang" class="lang-select" data-i18n-aria="language" aria-label="語言"></select>
+      <div id="user-bar" hidden><span id="identity"></span><button id="logout" class="quiet" data-i18n="logout">登出</button></div>
+    </div>
   </div></header>
   <main class="shell">
     <section id="login-panel" class="login card">
-      <p class="eyebrow">我們的家庭帳簿</p>
-      <h1>一起記帳，一起掌握資產。</h1>
-      <p class="muted">用你自己的帳號登入，記錄現金與投資。</p>
+      <p class="eyebrow" data-i18n="loginEyebrow">我們的家庭帳簿</p>
+      <h1 data-i18n="loginTitle">一起記帳，一起掌握資產。</h1>
+      <p class="muted" data-i18n="loginIntro">用你自己的帳號登入，記錄現金與投資。</p>
       <form id="login-form">
-        <label>電子郵件<input name="email" type="email" autocomplete="username" required></label>
-        <label>密碼<input name="password" type="password" autocomplete="current-password" required></label>
-        <button class="primary" id="login-button">登入</button>
+        <label><span data-i18n="email">電子郵件</span><input name="email" type="email" autocomplete="username" required></label>
+        <label><span data-i18n="password">密碼</span><input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="primary" id="login-button" data-i18n="login">登入</button>
       </form>
       <p id="login-status" role="status" class="feedback"></p>
-      <button id="switch-account" type="button" class="quiet" hidden>清除登入狀態</button>
+      <button id="switch-account" type="button" class="quiet" hidden data-i18n="clearSession">清除登入狀態</button>
     </section>
     <div id="workspace" hidden>
-      <nav class="tabs" aria-label="主要頁面">
-        <button type="button" id="ledger-tab" aria-controls="ledger" aria-pressed="true">交易紀錄</button>
-        <button type="button" id="dashboard-tab" aria-controls="dashboard" aria-pressed="false">持有總覽</button>
+      <nav class="tabs" data-i18n-aria="nav" aria-label="主要頁面">
+        <button type="button" id="ledger-tab" aria-controls="ledger" aria-pressed="true" data-i18n="tabLedger">交易紀錄</button>
+        <button type="button" id="dashboard-tab" aria-controls="dashboard" aria-pressed="false" data-i18n="tabDashboard">持有總覽</button>
       </nav>
       <section id="ledger">
-        <div class="intro"><p class="eyebrow">01 / 交易紀錄</p><h1>登錄交易</h1><p class="muted">選好日期與歸屬後，可一次記錄多筆明細。</p></div>
+        <div class="intro"><p class="eyebrow" data-i18n="ledgerEyebrow">01 / 交易紀錄</p><h1 data-i18n="ledgerTitle">登錄交易</h1><p class="muted" data-i18n="ledgerIntro">選好日期與歸屬後，可一次記錄多筆明細。</p></div>
         <form class="card entry" id="ledger-form">
           <div class="grid two">
-            <label>交易日期<input id="trade-date" type="date" required></label>
-            <label>資產歸屬<select id="owner"><option value="me">我</option><option value="wife">老婆</option><option value="joint">共同</option></select></label>
+            <label><span data-i18n="tradeDate">交易日期</span><input id="trade-date" type="date" required></label>
+            <label><span data-i18n="owner">資產歸屬</span><select id="owner"><option value="me" data-i18n="me">曾顥</option><option value="wife" data-i18n="wife">老婆</option><option value="joint" data-i18n="joint">共同</option></select></label>
           </div>
           <div id="items"></div>
           <div class="form-actions">
-            <button type="button" class="quiet" id="add-item">＋ 新增明細</button>
-            <button class="primary" id="save">儲存交易</button>
+            <button type="button" class="quiet" id="add-item" data-i18n="addItem">＋ 新增明細</button>
+            <button class="primary" id="save" data-i18n="save">儲存交易</button>
           </div>
           <p id="save-status" role="status" class="feedback"></p>
         </form>
         <section class="card history">
-          <div class="section-head"><h2>交易歷史</h2><button type="button" id="reload-history" class="quiet">重新整理</button></div>
+          <div class="section-head"><h2 data-i18n="historyTitle">交易歷史</h2><button type="button" id="reload-history" class="quiet" data-i18n="reload">重新整理</button></div>
           <p id="history-status" role="status" class="feedback"></p>
           <div id="history-list"></div>
-          <div class="pager" id="pager" hidden><button id="prev" class="quiet">上一頁</button><span id="page"></span><button id="next" class="quiet">下一頁</button></div>
+          <div class="pager" id="pager" hidden><button id="prev" class="quiet" data-i18n="prev">上一頁</button><span id="page"></span><button id="next" class="quiet" data-i18n="next">下一頁</button></div>
         </section>
       </section>
       <section id="dashboard" hidden>
-        <div class="intro"><p class="eyebrow">02 / 持有總覽</p><h1>目前持有資產</h1><p class="muted">從現金餘額、持股與參考行情查看你們的資產。</p></div>
+        <div class="intro"><p class="eyebrow" data-i18n="dashEyebrow">02 / 持有總覽</p><h1 data-i18n="dashTitle">目前持有資產</h1><p class="muted" data-i18n="dashIntro">從現金餘額、持股與參考行情查看你們的資產。</p></div>
         <div class="dashboard-tools">
-          <label>資產歸屬<select id="filter"><option value="all">全家</option><option value="me">我</option><option value="wife">老婆</option><option value="joint">共同</option></select></label>
-          <button type="button" id="refresh" class="quiet">更新帳簿與行情</button>
+          <label><span data-i18n="owner">資產歸屬</span><select id="filter"><option value="all" data-i18n="all">全家</option><option value="me" data-i18n="me">曾顥</option><option value="wife" data-i18n="wife">老婆</option><option value="joint" data-i18n="joint">共同</option></select></label>
+          <button type="button" id="refresh" class="quiet" data-i18n="refresh">更新帳簿與行情</button>
         </div>
         <p id="dashboard-status" role="status" class="feedback"></p>
         <div id="metrics" class="metrics"></div>
         <section class="card holdings">
-          <h2>持股明細</h2>
+          <h2 data-i18n="holdingsTitle">持股明細</h2>
           <p id="holdings-note" class="muted"></p>
           <div class="table-scroll">
             <table>
-              <thead><tr><th>股票</th><th>歸屬</th><th>股數</th><th>每股成本</th><th>參考價</th><th>估計市值</th><th>未實現損益</th><th>行情來源與時間</th></tr></thead>
+              <thead><tr><th data-i18n="thStock">股票</th><th data-i18n="thOwner">歸屬</th><th data-i18n="thShares">股數</th><th data-i18n="thCost">每股成本</th><th data-i18n="thTotalCost">總成本</th><th data-i18n="thPrice">參考價</th><th data-i18n="thValue">估計市值</th><th data-i18n="thProfit">未實現損益</th><th data-i18n="thSource">行情來源與時間</th></tr></thead>
               <tbody id="holdings-body"></tbody>
             </table>
           </div>
@@ -72,34 +75,34 @@
       </section>
     </div>
   </main>
-  <footer class="shell">台幣帳簿 · 台灣時間</footer>
+  <footer class="shell" data-i18n="footer">台幣帳簿 · 台灣時間</footer>
   <template id="item-template">
     <fieldset class="item">
       <legend></legend>
       <div class="item-top">
-        <label>交易類型<select name="kind">
-          <option value="deposit">現金存入</option><option value="withdraw">現金提領</option>
-          <option value="buy">股票買進</option><option value="sell">股票賣出</option>
-          <option value="opening_cash">期初現金</option><option value="opening_stock">期初持股</option>
+        <label><span data-i18n="kind">交易類型</span><select name="kind">
+          <option value="deposit" data-i18n="deposit">現金存入</option><option value="withdraw" data-i18n="withdraw">現金提領</option>
+          <option value="buy" data-i18n="buy">股票買進</option><option value="sell" data-i18n="sell">股票賣出</option>
+          <option value="opening_cash" data-i18n="opening_cash">期初現金</option><option value="opening_stock" data-i18n="opening_stock">期初持股</option>
         </select></label>
-        <button type="button" class="remove quiet">移除此明細</button>
+        <button type="button" class="remove quiet" data-i18n="remove">移除此明細</button>
       </div>
       <div class="cash-fields grid">
-        <label>金額（TWD）<input name="amount" type="number" min=".01" max="100000000000" step=".01" inputmode="decimal" required></label>
+        <label><span data-i18n="amount">金額（TWD）</span><input name="amount" type="number" min=".01" max="100000000000" step=".01" inputmode="decimal" required></label>
       </div>
       <div class="stock-fields grid" hidden>
-        <label>市場<select name="market"><option value="TWSE">上市 TWSE</option><option value="TPEX">上櫃 TPEx</option></select></label>
-        <label>股票代號<input name="symbol" maxlength="8" pattern="[0-9][0-9A-Za-z]{3,7}" placeholder="如 2330、0050" required></label>
-        <label>輸入單位<select name="unit"><option value="share">零股／按股輸入</option><option value="lot">整股／按張輸入</option></select></label>
+        <label><span data-i18n="market">市場</span><select name="market"><option value="TWSE" data-i18n="twse">上市 TWSE</option><option value="TPEX" data-i18n="tpex">上櫃 TPEx</option></select></label>
+        <label><span data-i18n="symbol">股票代號</span><input name="symbol" maxlength="8" pattern="[0-9][0-9A-Za-z]{3,7}" placeholder="如 2330、0050" data-i18n-placeholder="symbolHint" required></label>
+        <label><span data-i18n="unit">輸入單位</span><select name="unit"><option value="share" data-i18n="unitShare">零股／按股輸入</option><option value="lot" data-i18n="unitLot">整股／按張輸入</option></select></label>
         <label><span class="qty-label">股數</span><input name="quantity" type="number" min="1" max="100000000" step="1" inputmode="numeric" required></label>
-        <label class="lot-size" hidden>每張股數<input name="lotSize" type="number" min="1" max="1000000" step="1" value="1000" inputmode="numeric" required></label>
+        <label class="lot-size" hidden><span data-i18n="lotSize">每張股數</span><input name="lotSize" type="number" min="1" max="1000000" step="1" value="1000" inputmode="numeric" required></label>
         <label><span class="price-label">每股成交價</span><input name="price" type="number" min=".0001" max="10000000" step=".0001" inputmode="decimal" required></label>
-        <label class="fee">手續費<input name="fee" type="number" min="0" max="100000000" step=".01" inputmode="decimal" placeholder="0"></label>
-        <label class="tax" hidden>交易稅<input name="tax" type="number" min="0" max="100000000" step=".01" inputmode="decimal" placeholder="0"></label>
-        <label class="funding">交割現金<select name="funding"><option value="ledger">同歸屬的帳內現金</option><option value="external">外部資金</option></select></label>
+        <label class="fee"><span data-i18n="fee">手續費</span><input name="fee" type="number" min="0" max="100000000" step=".01" inputmode="decimal" placeholder="0"></label>
+        <label class="tax" hidden><span data-i18n="tax">交易稅</span><input name="tax" type="number" min="0" max="100000000" step=".01" inputmode="decimal" placeholder="0"></label>
+        <label class="funding"><span data-i18n="funding">交割現金</span><select name="funding"><option value="ledger" data-i18n="fundingLedger">同歸屬的帳內現金</option><option value="external" data-i18n="fundingExternal">外部資金</option></select></label>
       </div>
       <p class="preview muted" hidden></p>
-      <label>備註<input name="note" maxlength="300" placeholder="選填"></label>
+      <label><span data-i18n="note">備註</span><input name="note" maxlength="300" placeholder="選填" data-i18n-placeholder="optional"></label>
     </fieldset>
   </template>
 </body>
